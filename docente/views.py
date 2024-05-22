@@ -5,7 +5,7 @@ from processos.models import Asignatura
 # Create your views here.
 def docente_view(request):
 
-    return render(request, 'dbs_docente.html',)
+    return render(request, 'dbs_docente.html', {})
 
 
 def versiones_view(request):
@@ -39,3 +39,6 @@ def malladc_view(request, id):
 
 def vista_pdf(request):
     return render(request, 'index.html', {})
+
+def paralelo(request):
+    return render(request, 'paralelos.html', {})
