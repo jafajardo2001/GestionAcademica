@@ -1,9 +1,6 @@
 .bd-placeholder-img {
   font-size: 1.125rem;
   text-anchor: middle;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
 }
 
 @media (min-width: 768px) {
@@ -25,11 +22,6 @@
   flex-shrink: 0;
   width: 1.5rem;
   height: 100vh;
-}
-
-.bi {
-  vertical-align: -.125em;
-  fill: currentColor;
 }
 
 .nav-scroller {

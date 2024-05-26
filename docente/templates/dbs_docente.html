@@ -3,116 +3,282 @@
 <html lang="es">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>{% block title %}Inicio{% endblock %}</title>
-    <!-- Favicon-->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link href="{% static 'css/style2.css' %}" rel="stylesheet" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>{% block title %}Inicio{% endblock %}</title>
+  <!-- Favicon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    integrity="sha512-VBmEeJSHFna6Wl8MC+kWE99U1xh9E1+wLZ2Wq0xoeTi1CVnXh7DtLQAhMrAlDx4+0O6Zz8pvQbBG1Cqajhnxg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+  />
+  <link rel="icon" href="{% static 'css/logo.png' %}" />
+  <link rel="stylesheet" href="{% static 'css/estilo.css' %}" />
+  <link href="{% static 'css/style2.css' %}" rel="stylesheet" />
 </head>
 
 <body>
-
-    <div class="d-flex" id="wrapper">
-        <!-- Sidebar-->
-        <div class="border-end bg-white" id="sidebar-wrapper">
-            <div class="sidebar-heading border-bottom bg-light"><b>ISTG</b></div>
-            <div class="list-group list-group-flush">
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{% url 'docente:planificacion' %}">Planificacion</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{% url 'docente:versiones' %}">Versiones</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{% url 'docente:perfil' %}">Perfil</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Estado</a>
+  <div class="d-flex" id="wrapper">
+    <!-- Sidebar -->
+    <div class="border-end" id="sidebar-wrapper">
+      <div class="flex-shrink-0 p-3" style="width: 230px">
+          <img
+          src="{% static 'img/logo2.png' %}"
+          style="max-width: 100%; height: auto"
+        />
+        <ul class="list-unstyled ps-0">
+          <li class="mb-1">
+            <button
+              class="btn btn-toggle d-inline-flex rounded border-0 collapsed"
+              data-bs-toggle="collapse"
+              data-bs-target="#home-collapse"
+              aria-expanded="true"
+            >
+              <span class="material-symbols-outlined"> home </span>
+              Inicio
+            </button>
+            <div class="collapse show" id="home-collapse">
+              <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li>
+                  <a
+                    href="#"
+                    class="link-body-emphasis d-inline-flex text-decoration-none rounded"
+                    >Overview</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="link-body-emphasis d-inline-flex text-decoration-none rounded"
+                    >Updates</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="link-body-emphasis d-inline-flex text-decoration-none rounded"
+                    >Reports</a
+                  >
+                </li>
+              </ul>
             </div>
-        </div>
-        <!-- Page content wrapper-->
-        <div id="page-content-wrapper">
-            <!-- Top navigation-->
-            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-                <div class="container-fluid">
-                    <button class="btn btn-primary" id="sidebarToggle">
-                        <span class="navbar-toggler-icon"></span><!-- Esta clase representa el ícono de menú hamburguesa -->
-                    </button>
-                    <!-- Logo -->
-                    <img src="{% static 'img/logo2.png' %}" style="max-width: 40%; height: auto;">
-                    <!-- Navbar Collapse Button -->
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-
-                    <!-- Navbar Links -->
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
-                            <li class="nav-item active"><a class="nav-link" href="{% url 'docente:docente' %}">Inicio</a></li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
-                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Usuario</a>
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{% url 'docente:perfil' %}">Perfil</a>
-                                    <a class="dropdown-item" href="{% url 'docente:configuracion' %}">Configuracion</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="{% url 'login' %}">Cerrar Sesion</a>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-            {% block content %}
-            <div class="container-fluid">
-                <h1 class="mt-4"></h1>
-                <div class="row align-items-md-stretch">
-                    <div class="col-md-6">
-                        <div class="h-100 p-5 text-bg-dark rounded-3">
-                            <h2><b>Planificacion</b></h2>
-                            <ul>
-                                <li>
-                                    <p>Malla Curricular</p>
-                                </li>
-                                <li>
-                                    <p>Microcurrilar</p>
-                                </li>
-                            </ul>
-                            <button class="btn btn-outline-light" type="button"><a
-                                    href="#">Abrir</a></button>
-                        </div>
-                    </div>
-                </div>
+          </li>
+          <li class="mb-1">
+            <button
+              class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+              data-bs-toggle="collapse"
+              data-bs-target="#dashboard-collapse"
+              aria-expanded="false"
+            ><span class="material-symbols-outlined">
+              dashboard
+              </span>
+              Dashboard
+            </button>
+            <div class="collapse" id="dashboard-collapse">
+              <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li>
+                  <a
+                    href="#"
+                    class="link-body-emphasis d-inline-flex text-decoration-none rounded"
+                    >Overview</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="link-body-emphasis d-inline-flex text-decoration-none rounded"
+                    >Weekly</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="link-body-emphasis d-inline-flex text-decoration-none rounded"
+                    >Monthly</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="link-body-emphasis d-inline-flex text-decoration-none rounded"
+                    >Annually</a
+                  >
+                </li>
+              </ul>
             </div>
-            <div class="container-fluid">
-                <h1 class="mt-4"></h1>
-                <div class="row align-items-md-stretch">
-                    <div class="col-md-6">
-                        <div class="h-100 p-5 text-bg-dark rounded-3">
-                            <h2><b>Versiones</b></h2>
-                            <ul>
-                                <li>
-                                    <p>Malla Curricular (no editatble)</p>
-                                </li>
-                                <li>
-                                    <p>Microcurricular 2022</p>
-                                </li>
-                                <li>
-                                    <p>Microcurrilar 2023</p>
-                                </li>
-                            </ul>
-                            <button class="btn btn-outline-light" type="button"><a
-                                    href="{% url 'docente:versiones' %}">Abrir</a></button>
-                        </div>
-                    </div>
-                </div>
+          </li>
+          <li class="mb-1">
+            <button
+              class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+              data-bs-toggle="collapse"
+              data-bs-target="#orders-collapse"
+              aria-expanded="false"
+            ><span class="material-symbols-outlined">
+              orders
+              </span>
+              Orders
+            </button>
+            <div class="collapse" id="orders-collapse">
+              <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li>
+                  <a
+                    href="#"
+                    class="link-body-emphasis d-inline-flex text-decoration-none rounded"
+                    >New</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="link-body-emphasis d-inline-flex text-decoration-none rounded"
+                    >Processed</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="link-body-emphasis d-inline-flex text-decoration-none rounded"
+                    >Shipped</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="link-body-emphasis d-inline-flex text-decoration-none rounded"
+                    >Returned</a
+                  >
+                </li>
+              </ul>
             </div>
-            {% endblock content %}
-        </div>
+          </li>
+          <li class="border-top my-3"></li>
+          <li class="mb-1">
+            <button
+              class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+              data-bs-toggle="collapse"
+              data-bs-target="#account-collapse"
+              aria-expanded="false"
+            ><span class="material-symbols-outlined">
+              account_circle
+              </span>
+              Account
+            </button>
+            <div class="collapse" id="account-collapse">
+              <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li>
+                  <a
+                    href="#"
+                    class="link-body-emphasis d-inline-flex text-decoration-none rounded"
+                    >
+                    <span class="material-symbols-outlined">
+                      person
+                      </span>Perfil</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="link-body-emphasis d-inline-flex text-decoration-none rounded"
+                    ><span class="material-symbols-outlined">
+                      settings
+                      </span>
+                    Configuracion</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="{% url 'login' %}"
+                    class="link-body-emphasis d-inline-flex text-decoration-none rounded"
+                    ><span class="material-symbols-outlined">
+                      logout
+                      </span>
+                      Cerrar sesion</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
+    <!-- Page content wrapper -->
+    <div id="page-content-wrapper">
+      <!-- Top navigation -->
+      <nav class="navbar navbar-expand-lg navbar-light" style="width: 100%">
+        <div class="container-fluid">
+          <button class="btn btn-primary" id="sidebarToggle">
+            <span class="material-symbols-outlined"> menu </span>
+          </button>
+          <!-- Logo -->
+          
+          <!-- Navbar Collapse Button -->
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+          <span class="material-symbols-outlined">
+              menu
+              </span>
+          </button>
+        </div>
+      </nav>
+      <!-- Content -->
+      {% block content %}
+      <div class="container-fluid d-flex flex-wrap">
+        <div class="p-2 flex-grow-1">  <div class="h-100 p-5 text-bg-dark rounded-3">
+            <h2><b>Datos Informativos</b></h2>
+            <ul>
+              <li>
+                <p>Registro</p>
+              </li>
+              <li>
+                <p>Actualización</p>
+              </li>
+            </ul>
+            <button class="btn btn-outline-light" type="button">
+              <a href="{% url 'datosinfo' %}">Abrir</a>
+            </button>
+          </div>
+        </div>
+        <div class="p-2 flex-grow-1">  <div class="h-100 p-5 text-bg-dark rounded-3">
+            <h2><b>Usuarios</b></h2>
+            <ul>
+              <li>
+                <p>Creación de usuarios</p>
+              </li>
+              <li>
+                <p>Actualización de usuarios</p>
+              </li>
+            </ul>
+            <button class="btn btn-outline-light" type="button">
+              <a href="{% url 'usuarios' %}">Abrir</a>
+            </button>
+          </div>
+        </div>
+      
+        <div class="p-2 flex-grow-1">  <div class="h-100 p-5 text-bg-dark rounded-3">
+            <h2><b>Nuevo Contenido</b></h2>  <p>Este contenido se colocará debajo de las secciones existentes.</p>
+          </div>
+        </div>
+      </div>
+      
+      <br>
+      {% endblock content %}
+    </div>
+  </div>
 
-
-    <!-- Bootstrap core JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Core theme JS-->
-    {% load static %}
-    <script src="{% static 'js/dashboard.js' %}"></script>
+  <!-- Bootstrap core JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Core theme JS -->
+  <script src="{% static 'js/dashboard.js' %}"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </body>
 
 </html>
