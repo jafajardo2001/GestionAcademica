@@ -10,15 +10,14 @@ def login_view(request):
     if request.method == "POST":
         usuarioInput = request.POST["username"]
         claveInput = request.POST["password"]
-        rolInput = request.POST.get("rol")
         try:
             objtrabajado = Trabajador.objects.get(correo=usuarioInput)
             print(objtrabajado)
             if objtrabajado:
-                if (objtrabajado.rol == rolInput and objtrabajado.contrasena == claveInput):
-                    if rolInput == "Admin":
+                if (objtrabajado and objtrabajado.contrasena == claveInput):
+                    if objtrabajado.rol == "Admin":
                         return redirect('dashboard')
-                    elif rolInput == "Profesor":
+                    elif objtrabajado.rol == "Profesor":
                         return redirect('docente:docente')
                 else:
                     msg = "Credenciales invalidas"
