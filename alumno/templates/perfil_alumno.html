@@ -1,3 +1,35 @@
-{% extends "dbs_docente.html" %}
+{% extends "dsb_alumno.html" %}
 {% block content %}
-{% endblock content %}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb p-3 bg-body-tertiary rounded-3">
+      <li class="breadcrumb-item">
+        <a class="link-body-emphasis" href="{% url 'alumno:alumno' %}">
+          <span class="material-symbols-outlined"> home </span>
+        </a>
+      </li>
+      <li class="breadcrumb-item">
+        <a class="link-body-emphasis fw-semibold text-decoration-none"
+          ><span class="material-symbols-outlined"> account_circle </span></a
+        >
+      </li>
+    </ol>
+  </nav>
+  <div class="container-fluid d-flex flex-wrap">
+    <div class="p-2 flex-grow-1">
+      <div class="h-100 p-5 text-bg-dark rounded-3">
+        {% for trabajador in datosTrabajador %}
+        <div class="mb-3">
+          <label for="nombre" class="form-label">Nombre del Alumno:</label>
+          <p id="nombre">{{ trabajador.nombres }}</p>
+        </div>
+        <div class="mb-3">
+          <label for="correo" class="form-label">Correo Electrónico:</label>
+          <p id="correo">{{ trabajador.correo }}</p>
+        </div>
+        {% endfor %}
+        <a href="#" class="btn btn-primary">Editar Datos</a>
+      </div>
+    </div>
+    {% endblock content %}
+  </div>
+  

@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
-from processos.models import Asignatura
+from processos.models import Asignatura, Trabajador
+
 
 
 # Create your views here.
@@ -23,7 +24,9 @@ def microcurricular_view(request):
 
 
 def perfildc_view(request):
-    return render(request, 'perfil_docente.html', {})
+    datosTrabajador = Trabajador.objects.filter(rol='Profesor')
+    msg=""
+    return render(request, 'perfil_docente.html', {'datosTrabajador': datosTrabajador, 'msg': msg})
 
 
 def configuraciondc_view(request):
@@ -42,3 +45,6 @@ def vista_pdf(request):
 
 def paralelo(request):
     return render(request, 'paralelos.html', {})
+
+def examenes(request):
+    return render(request, 'examenes.html', {})

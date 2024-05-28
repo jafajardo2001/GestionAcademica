@@ -17,5 +17,6 @@ urlpatterns = [
     path('mallaCurricular/<int:id>',
          views.mallaCurricular_view, name='mallaCurricular'),
     path('admin/', admin.site.urls),
-    path('docente/', include('docente.urls'), name="docente")
+    path('docente/', include('docente.urls'), name="docente"),
+    path('alumno/', include('alumno.urls'), name="alumno")
 ]

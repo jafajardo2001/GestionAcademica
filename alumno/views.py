@@ -1,10 +1,15 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from processos.models import Asignatura, Trabajador
+
 
 def alumno_view (request):
     return render(request, 'dsb_alumno.html', {})
 
+
 def perfil_view (request):
-    return render(request, 'perfil_alumno.html', {})
+    datosTrabajador = Trabajador.objects.filter(rol='Alumno')
+    msg=""
+    return render(request, 'perfil_alumno.html', {'datosTrabajador': datosTrabajador, 'msg': msg})
 
 def calificaciones(request):
     return render(request, 'calificaciones.html', {})

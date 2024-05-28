@@ -5,16 +5,8 @@
       <ol class="breadcrumb p-3 bg-body-tertiary rounded-3">
         <li class="breadcrumb-item">
           <a class="link-body-emphasis" href="{% url 'docente:docente' %}">
-            <i class="material-icons">home</i>
-            <span class="visually-hidden"></span>
+            <span class="material-symbols-outlined"> home </span>
           </a>
-        </li>
-        <li class="breadcrumb-item">
-          <a
-            class="link-body-emphasis fw-semibold text-decoration-none"
-            href="{% url 'docente:versiones' %}"
-            >Versiones</a
-          >
         </li>
         <li class="breadcrumb-item active" aria-current="page">Registrar</li>
       </ol>
@@ -26,13 +18,13 @@
             <div class="col-md-6 w-100">
               <div class="p-5 text-bg-dark rounded-3">
                 <h2 class="title" style="text-align: center">
-                  Historial de versiones
+                  Calendario de materias
                 </h2>
                 <br />
                 <form method="post">
                   {% csrf_token %}
                   <label for="asignatura"
-                    >Seleccione version de una asignatura:</label
+                    >Seleccionar semestre o ciclo lectivo</label
                   >
                   <select
                     class="form-select"
@@ -40,7 +32,7 @@
                     id="asignatura"
                     ria-label="Default select example"
                   >
-                    <option selected>Selecione el periodo</option>
+                    <option selected>---</option>
                     {% for asignatura in asignaturas %}
                     <option value="{{ asignatura.id }}">
                       {{ asignatura.nombre_asignatura }}

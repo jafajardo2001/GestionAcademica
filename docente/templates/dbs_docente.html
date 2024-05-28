@@ -169,7 +169,7 @@
               <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                 <li>
                   <a
-                    href="#"
+                    href="{% url 'docente:perfil' %}"
                     class="link-body-emphasis d-inline-flex text-decoration-none rounded"
                     >
                     <span class="material-symbols-outlined">
@@ -233,42 +233,44 @@
       {% block content %}
       <div class="container-fluid d-flex flex-wrap">
         <div class="p-2 flex-grow-1">  <div class="h-100 p-5 text-bg-dark rounded-3">
-            <h2><b>Datos Informativos</b></h2>
+            <h2><b>Calificaciones</b></h2>
             <ul>
               <li>
-                <p>Registro</p>
-              </li>
-              <li>
-                <p>Actualización</p>
+                <p>Historial de califiaciones</p>
               </li>
             </ul>
             <button class="btn btn-outline-light" type="button">
-              <a href="{% url 'datosinfo' %}">Abrir</a>
+              <a href="{% url 'docente:calificaciones' %}">Abrir</a>
             </button>
           </div>
         </div>
         <div class="p-2 flex-grow-1">  <div class="h-100 p-5 text-bg-dark rounded-3">
-            <h2><b>Usuarios</b></h2>
+            <h2><b>Horario de clases</b></h2>
             <ul>
               <li>
-                <p>Creación de usuarios</p>
+                <p>Historial de cambios</p>
               </li>
               <li>
-                <p>Actualización de usuarios</p>
+                <p>Actualización de Horario</p>
               </li>
             </ul>
             <button class="btn btn-outline-light" type="button">
-              <a href="{% url 'usuarios' %}">Abrir</a>
+              <a href="{% url 'docente:horario' %}">Abrir</a>
             </button>
           </div>
         </div>
-      
         <div class="p-2 flex-grow-1">  <div class="h-100 p-5 text-bg-dark rounded-3">
-            <h2><b>Nuevo Contenido</b></h2>  <p>Este contenido se colocará debajo de las secciones existentes.</p>
+            <h2><b>Exames</b></h2>  <p>Podra ver los horarios de examenes para docentes y subir califiaciones.</p>
+            <button class="btn btn-outline-light" type="button">
+              <a href="{% url 'docente:examenes' %}">Abrir</a>
+            </button>
           </div>
+        </div>
+        <div class="p-2 flex-grow-1">  <div class="h-100 p-5 text-bg-dark rounded-3">
+          <h2><b>Nuevo Contenido</b></h2>  <p>Este contenido se colocará debajo de las secciones existentes.</p>
         </div>
       </div>
-      
+      </div>
       <br>
       {% endblock content %}
     </div>

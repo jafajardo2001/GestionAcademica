@@ -1,10 +1,9 @@
-
 from django.contrib import admin
 from django.urls import path
 from alumno import views
 
 
-app_name = "usuario"
+app_name = "alumno"
 urlpatterns = [
     path('', views.alumno_view, name='alumno'),
     path('examenes/', views.examenes, name='examenes'),

@@ -13,6 +13,16 @@ class Trabajador(models.Model):
     rol = models.CharField(max_length=60)
     estado = models.CharField(max_length=3, default='A')
 
+class Alumno(models.Model):
+    id = models.IntegerField(primary_key=True)
+    nombres = models.CharField(max_length=200)
+    apellidos = models.CharField(max_length=200)
+    cedula_identidad = models.IntegerField(unique=True)
+    correo = models.EmailField(max_length=300)
+    contrasena = models.CharField(max_length=150)
+    rol = models.CharField(max_length=60)
+    estado = models.CharField(max_length=3, default='A')
+
 
 class Asignatura(models.Model):
     id = models.IntegerField(primary_key=True)

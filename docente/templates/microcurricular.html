@@ -1,46 +1,53 @@
-{% extends "dbs_docente.html" %}
-{% block content %}
+{% extends "dbs_docente.html" %} {% block content %}
 <div class="d-flex" id="wrapper">
-    <div class="container-fluid">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb p-3 bg-body-tertiary rounded-3">
-                <li class="breadcrumb-item">
-                    <a class="link-body-emphasis" href="{% url 'docente:docente' %}">
-                        <i class="material-icons">home</i>
-                        <span class="visually-hidden"></span>
-                    </a>
-                </li>
-                <li class="breadcrumb-item">
-                    <a class="link-body-emphasis fw-semibold text-decoration-none" href="{% url 'docente:planificacion' %}">Planifiacion
-                        Microcurricular</a>
-                </li>
-                <li class="breadcrumb-item active" aria-current="page">
-                    Registrar
-                </li>
-            </ol>
-        </nav>
-        <div class="row align-items-md-stretch">
-            <h2 class="title" style="text-align: center;">Microcurriculares</h2>
-            <div class="col-md-6 w-100">
+  <div class="container-fluid">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb p-3 bg-body-tertiary rounded-3">
+        <li class="breadcrumb-item">
+          <a class="link-body-emphasis" href="{% url 'docente:docente' %}">
+            <span class="material-symbols-outlined"> home </span>
+          </a>
+        </li>
+        <li class="breadcrumb-item">
+          <a class="link-body-emphasis fw-semibold text-decoration-none"
+            >Califiaciones</a
+          >
+        </li>
+      </ol>
+    </nav>
+    <div class="row align-items-md-stretch">
+      <div class="col-md-6 w-100">
         <div class="container">
-            <!-- Inicio de la tabla -->
-            <table class="table">
-                <tr>
-                    <!-- Primer elemento de la tabla -->
-                    {% for i in asignatura %}
-                        <td>
-                            <div class="p-5 text-bg-dark rounded-3">
-                                <h2 class="title" style="text-align: center;">{{ i.nombre_asignatura }}</h2>
-                                <button class="btn btn-primary" type="button" style="background-color:#e5e5e5">
-                                    <a href="#">Abrir</a>
-                                </button>
-                            </div>
-                        </td>
-                        <tr>
-                    {% endfor %} 
-            </table>
-            <!-- Fin de la tabla -->
-        </div>                
+          <!-- Inicio de la tabla -->
+          <table class="table">
+            <tr>
+              <!-- Primer elemento de la tabla -->
+              {% for i in asignatura %}
+              <td>
+                <div class="p-5 text-bg-dark rounded-3">
+                  <h2 class="title" style="text-align: center">
+                    {{ i.nombre_asignatura }}
+                  </h2>
+                  <button
+                    class="btn btn-primary"
+                    type="button"
+                    style="background-color: #e5e5e5"
+                  >
+                    <a href="#">Abrir</a>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              {% endfor %}
+            </tr>
+          </table>
+
+          <!-- Fin de la tabla -->
+        </div>
+      </div>
     </div>
+    {% endblock content %}
+  </div>
 </div>
-{% endblock content %}

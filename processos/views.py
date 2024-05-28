@@ -19,6 +19,8 @@ def login_view(request):
                         return redirect('dashboard')
                     elif objtrabajado.rol == "Profesor":
                         return redirect('docente:docente')
+                    elif objtrabajado.rol == "Alumno":
+                        return redirect('alumno:alumno')
                 else:
                     msg = "Credenciales invalidas"
                     ok = False
@@ -212,7 +214,9 @@ def datosrg_view(request):
 
 
 def perfil_view(request):
-    return render(request, 'perfil.html', {})
+    datosTrabajador = Trabajador.objects.filter(rol='Admin')
+    msg=""
+    return render(request, 'perfil.html', {'datosTrabajador': datosTrabajador, 'msg': msg})
 
 
 def configuracion_view(request):
