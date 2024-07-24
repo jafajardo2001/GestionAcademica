@@ -12,4 +12,5 @@ urlpatterns = [
     path('configuracion/', views.config_alumno, name='configuracion'),
     path('proyectos>', views.proyectos, name='proyectos academicos'),
     path('error/', views.error, name='pdf'),
+    path('materias/', views.materias_view, name='materias'),
 ]

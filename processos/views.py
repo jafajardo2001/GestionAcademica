@@ -87,7 +87,28 @@ def trabajador_view(request):
 def materias_view(request):
     datosMaterias = Materias.objects.filter(estado='A')
     msg=""
-    return render(request, 'materias.html', {'datosMaterias': datosMaterias, 'msg': msg})
+    msg1 = ""
+
+    if request.method == 'POST':
+        if "eliminar" in request.POST:
+            materia_id = request.POST["eliminar"]
+            try:
+                materias = Materias.objects.get(id=materia_id)
+                materias.estado = "I"
+                materias.save()
+                msg = "Materia eliminada exitosamente."
+            except Materias.DoesNotExist:
+                msg = "La materia no existe o ya ha sido eliminada."
+
+        if "crear" in request.POST:
+            nombre_materias = request.POST["nombre_materias"]
+
+            materias = Materias(
+                nombre_materias=nombre_materias,
+            )
+            materias.save()
+            msg1 = "Materia creada exitosamente."
+    return render(request, 'materias.html', {'datosMaterias': datosMaterias, 'msg': msg, 'msg1' : msg1})
 
 def notas_view(request):
     datosNotas = Notas.objects.filter(estado='A')
@@ -97,7 +118,28 @@ def notas_view(request):
 def paralelo_view(request):
     datosParalelo = Paralelo.objects.filter(estado='A')
     msg=""
-    return render(request, 'paralelos.html', {'datosParalelo': datosParalelo, 'msg': msg})
+    msg1 = ""
+
+    if request.method == 'POST':
+        if "eliminar" in request.POST:
+            paralelo_id = request.POST["eliminar"]
+            try:
+                paralelo = Paralelo.objects.get(id=paralelo_id)
+                paralelo.estado = "I"
+                paralelo.save()
+                msg = "Materia eliminada exitosamente."
+            except Paralelo.DoesNotExist:
+                msg = "El paralelo no existe o ya ha sido eliminada."
+
+        if "crear" in request.POST:
+            nombre_cursos = request.POST["nombre_cursos"]
+
+            paralelo = Paralelo(
+                nombre_cursos=nombre_cursos,
+            )
+            paralelo.save()
+            msg1 = "Paralelo creado exitosamente."
+    return render(request, 'paralelos.html', {'datosParalelo': datosParalelo, 'msg': msg, 'msg1' : msg1})
 
 def cursos_view(request):
     datosCursos = Cursos.objects.filter(estado='A')
