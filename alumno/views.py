@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from processos.models import Asignatura, Trabajador
+from processos.models import Materias, Trabajador
 
 
 def alumno_view (request):

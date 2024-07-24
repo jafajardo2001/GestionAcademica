@@ -1,0 +1,29 @@
+{% extends "dsb_alumno.html" %}
+{% block content %}
+<div class="d-flex" id="wrapper">
+    <div class="container-fluid">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb p-3 bg-body-tertiary rounded-3">
+          <li class="breadcrumb-item">
+            <a class="link-body-emphasis" href="{% url 'docente:docente' %}">
+              <span class="material-symbols-outlined"> home </span>
+            </a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">Registrar</li>
+        </ol>
+      </nav>
+      <div class="p-2 flex-grow-1">
+        <div class="h-100 p-5 text-bg-dark rounded-3">
+          <h2><b>Horario de Examenes</b></h2>
+          <p>Este contenido se colocará debajo de las secciones existentes.</p>
+        </div>
+      </div>
+      <div class="p-2 flex-grow-1">
+          <div class="h-100 p-5 text-bg-dark rounded-3">
+            <h2><b>Resultados</b></h2>
+            <p>Este contenido se colocará debajo de las secciones existentes.</p>
+          </div>
+        </div>
+    </div>
+  </div>
+{% endblock content %}

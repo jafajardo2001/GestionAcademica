@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from processos.models import Asignatura, Trabajador
+from processos.models import  Trabajador, Materias
 
 
 
@@ -10,16 +10,16 @@ def docente_view(request):
 
 
 def versiones_view(request):
-    objet_Asignatura = Asignatura.objects.filter(estado="A")
+    objet_Materias = Materias.objects.filter(estado="A")
     if request.method == "POST":
-        asignatura_id = int(request.POST["asignatura"])
-        return redirect('docente:malladc', id=asignatura_id)
-    return render(request, 'versiones.html', {'asignaturas': objet_Asignatura})
+        materias_id = int(request.POST["asignatura"])
+        return redirect('docente:malladc', id=materias_id)
+    return render(request, 'versiones.html', {'asignaturas': objet_Materias})
 
 
 def microcurricular_view(request):
 
-    objasignatura = Asignatura.objects.filter(estado="A")
+    objasignatura = Materias.objects.filter(estado="A")
     return render(request, 'microcurricular.html', {'asignatura': objasignatura})
 
 
@@ -34,9 +34,9 @@ def configuraciondc_view(request):
 
 
 def malladc_view(request, id):
-    asignatura = Asignatura.objects.get(id=int(id), estado="A")
+    Materias = Materias.objects.get(id=int(id), estado="A")
     return render(request, 'malladc.html', {
-        'asignatura': asignatura
+        'Materias': Materias
     })
 
 
