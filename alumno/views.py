@@ -6,12 +6,12 @@ def alumno_view (request):
     return render(request, 'dsb_alumno.html', {})
 
 
-def perfil_view (request):
+def perfil_alumno_view (request):
     datosTrabajador = Trabajador.objects.filter(rol='Alumno')
     msg=""
     return render(request, 'perfil_alumno.html', {'datosTrabajador': datosTrabajador, 'msg': msg})
 
-def calificaciones(request):
+def calificaciones_alumno(request):
     return render(request, 'calificaciones.html', {})
 
 def config_alumno(request):
@@ -20,9 +20,9 @@ def config_alumno(request):
 def error(request):
     return render(request, '404.html', {})
 
-def materias_view(request):
+def materias_alumno_view(request):
     datosMaterias = Materias.objects.filter(estado='A')
-    msg=""
+    msg = ""
     msg1 = ""
 
     if request.method == 'POST':
@@ -44,13 +44,16 @@ def materias_view(request):
             )
             materias.save()
             msg1 = "Materia creada exitosamente."
-    return render(request, 'materias.html', {'datosMaterias': datosMaterias, 'msg': msg, 'msg1' : msg1})
+    return render(request, 'materias_alu.html', {'datosMaterias': datosMaterias, 'msg': msg, 'msg1' : msg1})
 
-def examenes(request):
+def examenes_alumno(request):
     return render(request, 'examenes.html', {})
 
-def proyectos(request):
+def proyectos_alumno(request):
     return render(request, 'proyectos.html')
+
+def tareas_alumno_view(request):
+    return render(request, 'tareas.html')
 
 
 # Create your views here.

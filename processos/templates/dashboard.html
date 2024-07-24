@@ -100,6 +100,13 @@
                     >Paralelos</a
                   >
                 </li>
+                <li>
+                  <a
+                    href="{% url 'cursos' %}"
+                    class="link-body-emphasis d-inline-flex text-decoration-none rounded"
+                    >Cursos</a
+                  >
+                </li>
               </ul>
             </div>
           </li>
@@ -227,21 +234,6 @@
       {% block content %}
       <div class="container-fluid d-flex flex-wrap">
         <div class="p-2 flex-grow-1">  <div class="h-100 p-5 text-bg-dark rounded-3">
-            <h2><b>Materias</b></h2>
-            <ul>
-              <li>
-                <p>Registro</p>
-              </li>
-              <li>
-                <p>Actualización</p>
-              </li>
-            </ul>
-            <button class="btn btn-outline-light" type="button">
-              <a href="{% url 'materias' %}">Abrir</a>
-            </button>
-          </div>
-        </div>
-        <div class="p-2 flex-grow-1">  <div class="h-100 p-5 text-bg-dark rounded-3">
             <h2><b>Usuarios</b></h2>
             <ul>
               <li>
@@ -256,14 +248,44 @@
             </button>
           </div>
         </div>
-      
+
         <div class="p-2 flex-grow-1">  <div class="h-100 p-5 text-bg-dark rounded-3">
-            <h2><b>Nuevo Contenido</b></h2>  <p>Este contenido se colocará debajo de las secciones existentes.</p>
+          <h2><b>Materias</b></h2>
+          <ul>
+            <li>
+              <p>Registro</p>
+            </li>
+            <li>
+              <p>Actualización</p>
+            </li>
+          </ul>
+          <button class="btn btn-outline-light" type="button">
+            <a href="{% url 'materias' %}">Abrir</a>
+          </button>
           </div>
         </div>
-      </div>
-      
-      <br>
+
+        <div class="p-2 flex-grow-1">
+          <div class="h-100 p-5 text-bg-dark rounded-3">
+            <h2><b>Paralelos</b></h2>
+            <ul>
+              <li>
+                <p>Registro de paralelos</p>
+              </li>
+              <li>
+                <p>Actualización de paralelos</p>
+              </li>
+            </ul>
+            <button class="btn btn-outline-light" type="button">
+              <a href="{% url 'paralelos' %}">Abrir</a>
+            </button>
+          </div>
+        </div>
+
+        <div class="p-2 flex-grow-1">  <div class="h-100 p-5 text-bg-dark rounded-3">
+          <h2><b>Nuevo Contenido</b></h2>  <p>Este contenido se colocará debajo de las secciones existentes.</p>
+          </div>
+        </div>
       {% endblock content %}
     </div>
   </div>

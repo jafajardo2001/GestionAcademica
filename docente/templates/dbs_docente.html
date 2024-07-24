@@ -45,21 +45,21 @@
                   <a
                     href="#"
                     class="link-body-emphasis d-inline-flex text-decoration-none rounded"
-                    >Overview</a
+                    >Novedades</a
                   >
                 </li>
                 <li>
                   <a
                     href="#"
                     class="link-body-emphasis d-inline-flex text-decoration-none rounded"
-                    >Updates</a
+                    >Reportes</a
                   >
                 </li>
                 <li>
                   <a
                     href="#"
                     class="link-body-emphasis d-inline-flex text-decoration-none rounded"
-                    >Reports</a
+                    >Horario de clases</a
                   >
                 </li>
               </ul>
@@ -80,30 +80,23 @@
               <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                 <li>
                   <a
-                    href="#"
+                    href="{% url 'docente:materias' %}"
                     class="link-body-emphasis d-inline-flex text-decoration-none rounded"
-                    >Overview</a
+                    >Materias</a
                   >
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="{% url 'docente:tareas' %}"
                     class="link-body-emphasis d-inline-flex text-decoration-none rounded"
-                    >Weekly</a
+                    >Tareas</a
                   >
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="{% url 'docente:paralelo' %}"
                     class="link-body-emphasis d-inline-flex text-decoration-none rounded"
-                    >Monthly</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    class="link-body-emphasis d-inline-flex text-decoration-none rounded"
-                    >Annually</a
+                    >Paralelos</a
                   >
                 </li>
               </ul>
@@ -118,7 +111,7 @@
             ><span class="material-symbols-outlined">
               orders
               </span>
-              Orders
+              Consultas
             </button>
             <div class="collapse" id="orders-collapse">
               <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
@@ -126,28 +119,35 @@
                   <a
                     href="#"
                     class="link-body-emphasis d-inline-flex text-decoration-none rounded"
-                    >New</a
+                    >Calificaciones</a
                   >
                 </li>
                 <li>
                   <a
                     href="#"
                     class="link-body-emphasis d-inline-flex text-decoration-none rounded"
-                    >Processed</a
+                    >Procesos</a
                   >
                 </li>
                 <li>
                   <a
                     href="#"
                     class="link-body-emphasis d-inline-flex text-decoration-none rounded"
-                    >Shipped</a
+                    >Solicitudes</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="{% url 'docente:examenes' %}"
+                    class="link-body-emphasis d-inline-flex text-decoration-none rounded"
+                    >Examenes</a
                   >
                 </li>
                 <li>
                   <a
                     href="#"
                     class="link-body-emphasis d-inline-flex text-decoration-none rounded"
-                    >Returned</a
+                    >Documentacion</a
                   >
                 </li>
               </ul>
@@ -169,7 +169,7 @@
               <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                 <li>
                   <a
-                    href="{% url 'docente:perfil' %}"
+                    href="{% url 'alumno:perfil' %}"
                     class="link-body-emphasis d-inline-flex text-decoration-none rounded"
                     >
                     <span class="material-symbols-outlined">
@@ -179,7 +179,7 @@
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="{% url 'configuracion' %}"
                     class="link-body-emphasis d-inline-flex text-decoration-none rounded"
                     ><span class="material-symbols-outlined">
                       settings
@@ -233,14 +233,14 @@
       {% block content %}
       <div class="container-fluid d-flex flex-wrap">
         <div class="p-2 flex-grow-1">  <div class="h-100 p-5 text-bg-dark rounded-3">
-            <h2><b>Calificaciones</b></h2>
+            <h2><b>Materias</b></h2>
             <ul>
               <li>
                 <p>Historial de califiaciones</p>
               </li>
             </ul>
             <button class="btn btn-outline-light" type="button">
-              <a href="{% url 'docente:calificaciones' %}">Abrir</a>
+              <a href="{% url 'docente:materias' %}">Abrir</a>
             </button>
           </div>
         </div>
@@ -262,10 +262,43 @@
         <div class="p-2 flex-grow-1">  <div class="h-100 p-5 text-bg-dark rounded-3">
             <h2><b>Examenes</b></h2>  <p>Podra ver los horarios de examenes para docentes y subir califiaciones.</p>
             <button class="btn btn-outline-light" type="button">
-              <a href="{% url 'examen' %}">Abrir</a>
+              <a href="{% url 'docente:examenes' %}">Abrir</a>
             </button>
           </div>
         </div>
+
+        <div class="p-2 flex-grow-1">  <div class="h-100 p-5 text-bg-dark rounded-3">
+            <h2><b>Documentacion</b></h2>  <p>Documentos de apoyo para docentes.</p>
+            <button class="btn btn-outline-light" type="button">
+              <a href="#">Abrir</a>
+            </button>
+          </div>
+        </div>
+
+        <div class="p-2 flex-grow-1">  <div class="h-100 p-5 text-bg-dark rounded-3">
+            <h2><b>Reportes</b></h2>  <p>Reportes de calificaciones y asistencia.</p>
+            <button class="btn btn-outline-light" type="button">
+              <a href="#">Abrir</a>
+            </button>
+          </div>
+        </div>
+
+        <div class="p-2 flex-grow-1">  <div class="h-100 p-5 text-bg-dark rounded-3">
+            <h2><b>Procesos</b></h2>  <p>Procesos de matriculación y cambios de paralelo.</p>
+            <button class="btn btn-outline-light" type="button">
+              <a href="#">Abrir</a>
+            </button>
+          </div>
+        </div>
+
+        <div class="p-2 flex-grow-1">  <div class="h-100 p-5 text-bg-dark rounded-3">
+            <h2><b>Solicitudes</b></h2>  <p>Solicitudes de alumnos y padres de familia.</p>
+            <button class="btn btn-outline-light" type="button">
+              <a href="#">Abrir</a>
+            </button>
+          </div>
+        </div>
+
         <div class="p-2 flex-grow-1">  <div class="h-100 p-5 text-bg-dark rounded-3">
           <h2><b>Nuevo Contenido</b></h2>  <p>Este contenido se colocará debajo de las secciones existentes.</p>
         </div>

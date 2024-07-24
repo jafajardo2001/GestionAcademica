@@ -25,11 +25,15 @@
                     <table class="small table accordion table-bordered rounded">
                         <thead class="text-white text-center" style="background:#274386">
                             <tr class="align-middle">
-                                <th class="fz-1">Proyectos</th>
+                                <th class="fz-1">Materias que puede visualizar</th>
                             </tr>
                         </thead>
-                        {# Este es un comentario en una plantilla Django #}
                         <tbody class="fs-6s">
+                            {% for materias in datosMaterias %}
+                            <tr>
+                                <td>{{ materias.nombre_materias }}</td>
+                            </tr>
+                            {% endfor %}
                         </tbody>
                     </table>
                 </div>

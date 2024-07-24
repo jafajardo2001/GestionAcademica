@@ -80,9 +80,16 @@
               <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                 <li>
                   <a
-                    href="{% url 'materias' %}"
+                    href="{% url 'alumno:materiasalu' %}"
                     class="link-body-emphasis d-inline-flex text-decoration-none rounded"
                     >Materias</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="{% url 'alumno:tareas' %}"
+                    class="link-body-emphasis d-inline-flex text-decoration-none rounded"
+                    >Tareas</a
                   >
                 </li>
                 <li>
@@ -233,17 +240,14 @@
       {% block content %}
       <div class="container-fluid d-flex flex-wrap">
         <div class="p-2 flex-grow-1">  <div class="h-100 p-5 text-bg-dark rounded-3">
-            <h2><b>Calificaciones</b></h2>
+            <h2><b>Materias</b></h2>
             <ul>
               <li>
-                <p>Historial de Calificaciones</p>
-              </li>
-              <li>
-                <p>Calificaciones por Examenes</p>
+                <p>materias Inscritas</p>
               </li>
             </ul>
             <button class="btn btn-outline-light" type="button">
-              <a href="{% url 'materias' %}">Abrir</a>
+              <a href="{% url 'alumno:materiasalu' %}">Abrir</a>
             </button>
           </div>
         </div>
@@ -258,10 +262,42 @@
               </li>
             </ul>
             <button class="btn btn-outline-light" type="button">
-              <a href="{% url 'tareas' %}">Abrir</a>
+              <a href="{% url 'alumno:tareas' %}">Abrir</a>
             </button>
           </div>
         </div>
+
+        <div class="p-2 flex-grow-1">  <div class="h-100 p-5 text-bg-dark rounded-3">
+          <h2><b>Examenes</b></h2>
+          <ul>
+            <li>
+              <p>Realizados</p>
+            </li>
+            <li>
+              <p>Calificaciones</p>
+            </li>
+          </ul>
+          <button class="btn btn-outline-light" type="button">
+            <a href="{% url 'alumno:examenes' %}">Abrir</a>
+          </button>
+        </div>
+      </div>
+
+      <div class="p-2 flex-grow-1">  <div class="h-100 p-5 text-bg-dark rounded-3">
+        <h2><b>Proyectos</b></h2>
+        <ul>
+          <li>
+            <p>Realizados</p>
+          </li>
+          <li>
+            <p>Extracurriculares</p>
+          </li>
+        </ul>
+        <button class="btn btn-outline-light" type="button">
+          <a href="{% url 'alumno:proyectos' %}">Abrir</a>
+        </button>
+      </div>
+    </div>
       
         <div class="p-2 flex-grow-1">  <div class="h-100 p-5 text-bg-dark rounded-3">
             <h2><b>Nuevo Contenido</b></h2>  <p>Este contenido se colocará debajo de las secciones existentes.</p>

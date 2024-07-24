@@ -84,9 +84,9 @@ def trabajador_view(request):
             msg1 = "Trabajador creado exitosamente."
     return render(request, 'Registrar.html', {'datosTrabajador': datosTrabajador, 'msg': msg, 'msg1': msg1})
 
-def materias_view(request):
+def materias_procesos_view(request):
     datosMaterias = Materias.objects.filter(estado='A')
-    msg=""
+    msg = ""
     msg1 = ""
 
     if request.method == 'POST':
@@ -144,7 +144,28 @@ def paralelo_view(request):
 def cursos_view(request):
     datosCursos = Cursos.objects.filter(estado='A')
     msg=""
-    return render(request, 'cursos,html', {'datosCursos': datosCursos, 'msg': msg})
+    msg1 = ""
+
+    if request.method == 'POST':
+        if "eliminar" in request.POST:
+            cursos_id = request.POST["eliminar"]
+            try:
+                curso = Cursos.objects.get(id=cursos_id)
+                curso.estado = "I"
+                curso.save()
+                msg = "Curso eliminado exitosamente."
+            except Cursos.DoesNotExist:
+                msg = "El curso no existe o ya ha sido eliminado."
+
+        if "crear" in request.POST:
+            nombre_curso = request.POST["nombre_curso"]
+
+            curso = Cursos(
+                nombre_curso=nombre_curso,
+            )
+            curso.save()
+            msg1 = "Curso creado exitosamente."
+    return render(request, 'cursos.html', {'datosCursos': datosCursos, 'msg': msg, 'msg1' : msg1})
 
 def tareas_view(request):
     datosTareas =Tareas.objects.filter(estado='A')

@@ -1,3 +1,41 @@
 {% extends "dsb_alumno.html" %}
 {% block content %}
+<div class="d-flex" id="wrapper">
+    <div class="container-fluid">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb p-3 bg-body-tertiary rounded-3">
+                <li class="breadcrumb-item">
+                    <a class="link-body-emphasis" href="{% url 'alumno:alumno' %}">
+                      <span class="material-symbols-outlined"> home </span>
+                    </a>
+                  </li>
+                <li class="breadcrumb-item">
+                    <a class="link-body-emphasis fw-semibold text-decoration-none" href="{% url 'materias' %}">
+                        <span class="material-symbols-outlined">
+                        school
+                        </span>
+                    </a>
+                </li>
+            </ol>
+        </nav>
+        
+        <div class="row align-items-md-stretch">
+            <div class="col-md-6 w-100">
+                <div class="p-5 text-bg-dark rounded-3 text-center">
+                    <table class="small table accordion table-bordered rounded">
+                        <thead class="text-white text-center" style="background:#274386">
+                            <tr class="align-middle">
+                                <th class="fz-1">Examenes</th>
+                            </tr>
+                        </thead>
+                        {# Este es un comentario en una plantilla Django #}
+                        <tbody class="fs-6s">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <hr>
+    </div>
+</div>
 {% endblock content %}

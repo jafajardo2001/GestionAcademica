@@ -1,11 +1,11 @@
-{% extends "dsb_alumno.html" %}
+{% extends "dbs_docente.html" %}
 {% block content %}
 <div class="d-flex" id="wrapper">
     <div class="container-fluid">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb p-3 bg-body-tertiary rounded-3">
                 <li class="breadcrumb-item">
-                    <a class="link-body-emphasis" href="{% url 'alumno:alumno' %}">
+                    <a class="link-body-emphasis" href="{% url 'docente:docente' %}">
                       <span class="material-symbols-outlined"> home </span>
                     </a>
                   </li>
@@ -25,11 +25,23 @@
                     <table class="small table accordion table-bordered rounded">
                         <thead class="text-white text-center" style="background:#274386">
                             <tr class="align-middle">
-                                <th class="fz-1">Proyectos</th>
+                                <th class="fz-1">Materias que administra</th>
+                                <th class="fz-1">Descripción</th>
+                                <th class="fz-1">Tareas</th>
                             </tr>
                         </thead>
                         {# Este es un comentario en una plantilla Django #}
                         <tbody class="fs-6s">
+                            {% for materia in datosMaterias %}
+                            <tr>
+                                <td>{{ materia.nombre_materias }}</td>
+                                <td>{{ materia.descripcion }}</td>
+                            </tr>
+                            {% empty %}
+                            <tr>
+                                <td colspan="2" class="text-center">No hay materias asignadas.</td>
+                            </tr>
+                            {% endfor %}
                         </tbody>
                     </table>
                 </div>
