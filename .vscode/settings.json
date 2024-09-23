@@ -1,0 +1,11 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "database": "${workspaceFolder:GestionAcademica}/db.sqlite3",
+            "name": "gestion"
+        }
+    ],
+    "sqltools.useNodeRuntime": true
+}
